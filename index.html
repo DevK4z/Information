@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <!-- Mapbox GL JS -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
   </head>
   <body>
     <!-- Floating particles background -->
@@ -475,32 +478,68 @@
         <!-- Contact Section -->
         <section id="contact" class="section reveal">
           <h2 class="section-title">Contact</h2>
-          <div class="contact-content">
-            <!-- Updated contact text -->
-            <p class="contact-text reveal-item">
-              Looking for a backend engineer who can architect scalable systems
-              and lead technical initiatives? Whether you need help with
-              microservices, database optimization, or cloud infrastructure, I'd
-              love to hear from you.
-            </p>
-            <a
-              href="mailto:alex@example.com"
-              class="contact-button reveal-item magnetic-button ripple-button"
-            >
-              Let's Build Something
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <rect width="20" height="16" x="2" y="4" rx="2" />
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-              </svg>
-            </a>
+
+          <!-- Mapbox Map (dark blue themed) -->
+          <div class="contact-map reveal-item">
+            <div id="mapbox-map">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d117956.71177596982!2d103.9755729!3d22.4986581!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x36cd15b54212a913%3A0xfe709c58b76a9605!2zVHAuIEzDoG8gQ2FpLCBMw6BvIENhaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1773386693136!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="map-blue-overlay"></div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form-wrapper reveal-item">
+            <h3 class="contact-form-title">Contact Form</h3>
+            <form class="contact-form" id="contactForm">
+              <div class="contact-form-row">
+                <div class="contact-form-group">
+                  <input
+                    type="text"
+                    id="contactName"
+                    class="contact-input"
+                    placeholder="Full name"
+                    required
+                  />
+                </div>
+                <div class="contact-form-group">
+                  <input
+                    type="email"
+                    id="contactEmail"
+                    class="contact-input"
+                    placeholder="Email address"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="contact-form-group">
+                <textarea
+                  id="contactMessage"
+                  class="contact-input contact-textarea"
+                  placeholder="Your Message"
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+              <div class="contact-form-actions">
+                <button type="submit" class="contact-send-btn magnetic-button ripple-button">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M22 2L11 13" />
+                    <path d="M22 2L15 22L11 13L2 9L22 2Z" />
+                  </svg>
+                  Send Message
+                </button>
+              </div>
+            </form>
           </div>
         </section>
 

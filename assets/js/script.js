@@ -276,4 +276,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initial check
   updateScrollButton()
+
+  // ── Mapbox Map Initialization ──
+  // Replace 'YOUR_MAPBOX_TOKEN' with your actual Mapbox access token
+  // Get one free at https://mapbox.com
+  mapboxgl.accessToken = 'YOUR_MAPBOX_TOKEN'
+
+  const map = new mapboxgl.Map({
+    container: 'mapbox-map',
+    style: 'mapbox://styles/mapbox/dark-v11',
+    center: [103.975, 22.498], // Lào Cai, Vietnam
+    zoom: 11,
+    attributionControl: false,
+    interactive: true,
+  })
+
+  // Add navigation controls
+  map.addControl(new mapboxgl.NavigationControl(), 'top-right')
+
+  // Add a glowing marker
+  const markerEl = document.createElement('div')
+  markerEl.className = 'mapbox-marker'
+  markerEl.innerHTML = `
+    <div class="marker-pulse"></div>
+    <div class="marker-dot"></div>
+  `
+
+  new mapboxgl.Marker({ element: markerEl })
+    .setLngLat([103.975, 22.498])
+    .addTo(map)
 })
